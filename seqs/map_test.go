@@ -9,9 +9,6 @@ import (
 )
 
 func TestMap(t *testing.T) {
-
 	assert.Equal(t, []int{2, 3, 4}, seqs.Map([]int{1, 2, 3}, Inc))
 	assert.Equal(t, []string{"1", "2", "3"}, seqs.Map([]int{1, 2, 3}, ToString))
-	// assert_EqualSeq(t, seq.Empty[int](), seq.Map(inc)(seq.Empty[int]()))
-	// assert_EqualSeq(t, seq.Of("1", "2"), seq.Map(toString)(seq.Of(1, 2)))
 }

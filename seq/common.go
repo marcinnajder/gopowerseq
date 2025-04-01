@@ -4,6 +4,12 @@ import (
 	"iter"
 )
 
+type Func[T, R any] func(T) R
+type Func2[T1, T2, R any] func(T1, T2) R
+type Func3[T1, T2, T3, R any] func(T1, T2, T3) R
+
+// type inference does work correctly when helpers type 'Func' is used instead of typ 'func(T) R'
+
 func Pipe[T, R any](val T, f func(T) R) R {
 	return f(val)
 }
@@ -26,10 +32,24 @@ type OperatorR[T, R any] OperatorTR[iter.Seq[T], R]
 
 type Operator[T, R any] OperatorTR[iter.Seq[T], iter.Seq[R]]
 
-type Func[T, R any] func(T) R
-type Func2[T1, T2, R any] func(T1, T2) R
-type Func3[T1, T2, T3, R any] func(T1, T2, T3) R
-
 func identity[T any](t T) T {
 	return t
+}
+
+type Tuple2[T1, T2 any] struct {
+	Item1 T1
+	Item2 T2
+}
+
+type Tuple3[T1, T2, T3 any] struct {
+	Item1 T1
+	Item2 T2
+	Item3 T3
+}
+
+type Tuple4[T1, T2, T3, T4 any] struct {
+	Item1 T1
+	Item2 T2
+	Item3 T3
+	Item4 T4
 }

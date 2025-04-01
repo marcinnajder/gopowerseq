@@ -3,6 +3,7 @@ package seq_test
 import (
 	"testing"
 
+	. "github.com/marcinnajder/gopowerseq/internal/shared4tests"
 	"github.com/marcinnajder/gopowerseq/seq"
 	"github.com/stretchr/testify/assert"
 )
