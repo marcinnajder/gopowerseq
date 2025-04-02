@@ -1,22 +1,23 @@
 package seqs_test
 
 import (
-	"fmt"
 	"testing"
 
-	"github.com/marcinnajder/gopowerseq/seq"
 	"github.com/marcinnajder/gopowerseq/seqs"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestZip(t *testing.T) {
-
-	for item1, item2 := range seqs.Zip(seq.Of("a", "b"), seq.Range(1, 10)) {
-		fmt.Println(item1, item2)
+	i := 0
+	for item1, item2 := range seqs.Zip([]string{"a", "b"}, []int{1, 2}) {
+		switch {
+		case i == 0:
+			assert.Equal(t, "a", item1)
+			assert.Equal(t, 1, item2)
+		case i == 1:
+			assert.Equal(t, "b", item1)
+			assert.Equal(t, 2, item2)
+		}
+		i++
 	}
-
-	assert.Equal(t, 1, 2)
-	// assert.Equal(t, []string{"1", "2", "3"}, seqs.Map([]int{1, 2, 3}, ToString))
-	// assert_EqualSeq(t, seq.Empty[int](), seq.Map(inc)(seq.Empty[int]()))
-	// assert_EqualSeq(t, seq.Of("1", "2"), seq.Map(toString)(seq.Of(1, 2)))
 }

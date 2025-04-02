@@ -20,6 +20,10 @@ func Inc(i int) int {
 	return i + 1
 }
 
+func Add(a, b int) int {
+	return a + b
+}
+
 func ToString(i int) string {
 	return strconv.Itoa(i)
 }

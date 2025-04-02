@@ -1,5 +1,50 @@
+------------------------------------------------
+moze to nie ma sensu bo ... 
+
+- kolekcje, string, ... nie implementuje interfejsu 'Seq[T]'
+-- slides.Values(itemsSlice), slices.Collect(itemsSeq) 
+
+- nie ma wnioskowania typow dla lambd
+-- ilosc kodu dla petli for+if jest "identyczna" z wykonaniem "filter 
+-- items.filter( x => x > 10) vs items.filter( (x: int) :int => { return x + 1; })
+
+- tylko funkcje moge byc generyczne, metody nie moga
+-- (nie ma_ wygodnego sposoby wywolania wielu operatorow
+
+- w go nie ma koncepcji "braku wartosci" (Option<T>)
+
+- operatory musza byc naturalne czyli "idiomatyczne" dla stylu programowania w go
 
 
+------------------------------------------------
+... ALE powerseqseq ma sens
+
+- ciekawe wyzdanie zaprojektowac API tak aby bylo "naturalne" dla jezyka Go pomimo ogranczen jezyka
+
+- mozna sobie testowo "opublikowac biblioteke" w go
+
+- gdy osoby lubia programowac funkcyjne (ja w go "nie lubie" :))
+
+- czasami jedna jest irytujece jak trzeba pisc kolejny raz pojedyncze wywolanie  np Find, All, Any, ... 
+
+- gdy ktos chce po prostu wykonac jeden operator przekazujca slice a nie Seq[T]
+- gdy operatory sa bardziej ciekawe jak: pairwise, expand, combinations, interleave, interpose
+
+- same iteratory pojawily sie dopiero w 2024, generyki w 2022, a go pojawil sie w 2009, moze bedzie to badziej popularne
+- generalnie "iterator" ma sens, nawet piszac zadania aoc uzywalem iteratorow/generatorow gdzie to miala sens
+
+------------------------------------------------
+... go jest fajny bo
+
+- super oficjalna integracja z vs code (google robi dodatek), formatter, fixer, linter, testy jednostkowe, ... wszystko "in the box"
+- bardzo prosty jezyk programowania promujacy: programowania proceduralne/funkcyjne "functions over data"
+- bardzo szybka kompilacja i wykonanie
+- prostota budownia modulow z pakietami/pakietow, zwykle pliki na dysku
+
+
+
+
+------------------------------------------------
 
 
 defer

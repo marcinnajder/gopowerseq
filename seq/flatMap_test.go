@@ -10,21 +10,6 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-// it('flatmap', function () {
-//     const items = [
-//         { name: "a", items: [] },
-//         { name: "b", items: [1] },
-//         { name: "c", items: [1, 2], },
-//     ];
-
-//     assert.deepEqual([...flatmap(items, x => x.items)], [1, 1, 2]);
-//     assert.deepEqual([...flatmap(items, x => x.items)], [1, 1, 2]);
-//     assert.deepEqual([...flatmap(items, (x, index) => [index].concat(x.items))], [0, 1, 1, 2, 1, 2]);
-//     assert.deepEqual([...flatmap(items, x => x.items, (item, subitem) => item.name + subitem)], ["b1", "c1", "c2"]);
-
-//     assert.deepEqual([...flatmap<typeof items[0], number>(x => x.items)(items)], [1, 1, 2]);
-// });
-
 type Item struct {
 	name  string
 	items []int
