@@ -46,15 +46,18 @@ moze to nie ma sensu bo ...
 
 ------------------------------------------------
 
-
++range
++entries
 defer
 empty
-+entries
 generate
-+range
 repeatvalue
 throww
 
+
++zip
++concat
+join
 
 + max, maxby, min, minby - slices.Min/MinFunc/Max/MaxFunc
 average
@@ -63,12 +66,13 @@ sum
 +count
 countby
 
++foreach - "subscribe"
 oftype
 cast
 defaultifempty
 doo
 ignoreelements
-+foreach - "subscribe"
+
 isempty
 memoize
 
@@ -77,12 +81,13 @@ memoize
 +distinctby
 +distinctuntilchanged
 
-except
-exceptby
-intersect
-intersectby
 union
 unionby
+intersect
+intersectby
+except
+exceptby
+
 
 buffer
 pairwise
@@ -95,14 +100,14 @@ interpose
 
 +map
 +filter
++flatmap
 filtermap
 flat
-+flatmap
 
-includes
-single
 +find
 +findindex
+includes - includes
+single
 last
 elementat
 
@@ -144,9 +149,7 @@ toobject
 
 
 
-join
-+zip
-+concat
+
 
 
 
