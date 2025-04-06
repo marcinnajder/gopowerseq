@@ -95,3 +95,7 @@ func DistinctUntilChangedFunc[T any, K comparable](s []T, f seq.Func[T, K]) iter
 func DistinctUntilChanged[T comparable](s []T) iter.Seq[T] {
 	return seq.DistinctUntilChanged[T]()(slices.Values(s))
 }
+
+func Zip[T1, T2 any](s1 []T1, s2 []T2) iter.Seq2[T1, T2] {
+	return seq.Zip(slices.Values(s1), slices.Values(s2))
+}
