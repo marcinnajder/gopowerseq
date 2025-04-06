@@ -5,10 +5,10 @@ import (
 	"maps"
 )
 
-func Entries[K comparable, V any](m map[K]V) iter.Seq[Tuple2[K, V]] {
-	return func(yield func(Tuple2[K, V]) bool) {
+func Entries[K comparable, V any](m map[K]V) iter.Seq[Tuple[K, V]] {
+	return func(yield func(Tuple[K, V]) bool) {
 		for key, value := range maps.All(m) {
-			if !yield(Tuple2[K, V]{key, value}) {
+			if !yield(Tuple[K, V]{key, value}) {
 				return
 			}
 		}

@@ -49,60 +49,65 @@ moze to nie ma sensu bo ...
 
 defer
 empty
-entries
++entries
 generate
-range
++range
 repeatvalue
 throww
 
 
-max, maxby, min, minby - slices.Min/MinFunc/Max/MaxFunc
++ max, maxby, min, minby - slices.Min/MinFunc/Max/MaxFunc
 average
 sum
 
-count
++count
 countby
-
-
-buffer
-pairwise
-partitionby
-share
 
 oftype
 cast
 defaultifempty
 doo
 ignoreelements
-foreach
++foreach - "subscribe"
 isempty
 memoize
 
 
-distinct
-distinctby
-distinctuntilchanged
++distinct
++distinctby
++distinctuntilchanged
 
+except
+exceptby
+intersect
+intersectby
+union
+unionby
+
+buffer
+pairwise
+partitionby
+share
 expand
 combinations
 interleave
 interpose
 
-map
-filter
++map
++filter
 filtermap
 flat
-flatmap
++flatmap
 
 includes
 single
-find
-findindex
++find
++findindex
 last
 elementat
 
 
-groupby
++groupby
 groupbytoobject
 groupbytotransformedobject
 groupjoin
@@ -113,40 +118,35 @@ orderbydescending
 thenby
 thenbydescending
 
-reduce
-scan
++reduce
++scan
 
 repeat
 reverse
 sequenceequal
 
 
-every
-some
++every
++some
 
 
-skip
++skip
++take
++takewhile
++skipwhile
 skiplast
-skipwhile
-take
 takelast
-takewhile
 
 
-toarray
-tomap
++toarray
++tomap
 toobject
 
-except
-exceptby
-intersect
-intersectby
-union
-unionby
+
 
 join
-zip
-concat
++zip
++concat
 
 
 

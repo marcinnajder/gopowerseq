@@ -5,13 +5,28 @@ package main
 import (
 	"fmt"
 	"math"
+	"slices"
 
 	"github.com/marcinnajder/gopowerseq/seq"
+	"github.com/marcinnajder/gopowerseq/seqs"
 )
+
+type IntSlice []int
 
 func main() {
 
-	powerSeqIntro()
+	items := IntSlice{1, 2, 3, 4}
+
+	filteredItems := seqs.Filter(items, func(item int) bool { return item%2 == 0 })
+
+	mappedItems := seqs.Map(items, func(item int) int { return item + 1 })
+
+	_ = filteredItems
+
+	fmt.Println(slices.Collect(filteredItems))
+	fmt.Println(mappedItems)
+
+	//powerSeqIntro()
 	//fmt.Println(q)
 
 	// q := seq.Pipe2(

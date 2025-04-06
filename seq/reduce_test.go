@@ -25,5 +25,4 @@ func TestReduceA(t *testing.T) {
 	assert.Equal(t, "0-5-10-15", seq.ReduceA(func(prev string, current int) string {
 		return fmt.Sprintf("%s-%d", prev, current)
 	}, "0")(seq.Of(5, 10, 15)))
-
 }

@@ -13,7 +13,7 @@ import (
 func TestFlatMap(t *testing.T) {
 	entries := seq.Entries(map[string][]int{"a": {}, "b": {1}, "c": {1, 2}})
 
-	getItems := func(e seq.Tuple2[string, []int]) iter.Seq[int] {
+	getItems := func(e seq.Tuple[string, []int]) iter.Seq[int] {
 		return slices.Values(e.Item2)
 	}
 

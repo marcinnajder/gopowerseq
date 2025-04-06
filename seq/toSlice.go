@@ -5,6 +5,6 @@ import (
 	"slices"
 )
 
-func ToSlice[T any](items iter.Seq[T]) []T {
-	return slices.Collect(items)
+func ToSlice[T any](s iter.Seq[T]) []T {
+	return slices.Collect(s)
 }

@@ -36,7 +36,7 @@ func identity[T any](t T) T {
 	return t
 }
 
-type Tuple2[T1, T2 any] struct {
+type Tuple[T1, T2 any] struct {
 	Item1 T1
 	Item2 T2
 }
