@@ -8,9 +8,9 @@ import (
 )
 
 func TestToSlice(t *testing.T) {
-	assert.Equal(t, []int{1, 2, 3}, seq.ToSlice(seq.Of(1, 2, 3)))
+	assert.Equal(t, []int{1, 2, 3}, seq.ToSlice[int]()(seq.Of(1, 2, 3)))
 
-	s := seq.ToSlice(seq.Of[int]())
+	s := seq.ToSlice[int]()(seq.Of[int]())
 	assert.Equal(t, 0, len(s))
 
 }

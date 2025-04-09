@@ -57,14 +57,14 @@ throww
 
 +zip
 +concat
-join
++join
 
 + max, maxby, min, minby - slices.Min/MinFunc/Max/MaxFunc
-average
-sum
++ average
++ sum
 
 +count
-countby
++ countby
 
 +foreach - "subscribe"
 oftype
@@ -81,16 +81,16 @@ memoize
 +distinctby
 +distinctuntilchanged
 
-union
-unionby
-intersect
-intersectby
-except
-exceptby
++union
++unionby
++intersect
++intersectby
++except
++exceptby
 
 
-buffer
-pairwise
++buffer
++pairwise
 partitionby
 share
 expand
@@ -113,22 +113,22 @@ elementat
 
 
 +groupby
-groupbytoobject
-groupbytotransformedobject
+-groupbytoobject
+-groupbytotransformedobject
 groupjoin
 
 
-orderby
-orderbydescending
-thenby
-thenbydescending
+-orderby
+-orderbydescending
+-thenby
+-thenbydescending
 
 +reduce
 +scan
 
-repeat
-reverse
-sequenceequal
++repeat
+-reverse
++sequenceequal
 
 
 +every
@@ -145,7 +145,7 @@ takelast
 
 +toarray
 +tomap
-toobject
+-toobject
 
 
 

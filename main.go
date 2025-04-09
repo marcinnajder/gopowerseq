@@ -33,9 +33,10 @@ func powerSeqIntro() {
 		seq.Range(0, math.MaxInt64),
 		seq.Filter(func(x int) bool { return x%2 == 0 }),
 		seq.Take[int](5),
-		seq.ToSlice)
+		seq.ToSlice[int]())
 
 	fmt.Println(items)
+
 }
 
 // 	import { pipe, range, filter, take, toarray } from "powerseq"; // npm install powerseq

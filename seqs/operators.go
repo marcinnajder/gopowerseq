@@ -1,6 +1,7 @@
 package seqs
 
 import (
+	"cmp"
 	"iter"
 	"slices"
 
@@ -17,6 +18,10 @@ func Filter[T any](s []T, f seq.Func[T, bool]) iter.Seq[T] {
 
 func CountFunc[T any](s []T, f seq.Func[T, bool]) int {
 	return seq.CountFunc(f)(slices.Values(s))
+}
+
+func CountBy[T any, K comparable](s []T, f seq.Func[T, K]) map[K]int {
+	return seq.CountBy(f)(slices.Values(s))
 }
 
 func Find[T any](s []T, f seq.Func[T, bool]) (val T, index int) {
@@ -106,4 +111,64 @@ func Join[T1 any, T2 any, K comparable](s1 []T1, s2 []T2, key1 seq.Func[T1, K], 
 
 func JoinFunc[T1 any, T2 any, K comparable, R any](s1 []T1, s2 []T2, key1 seq.Func[T1, K], key2 seq.Func[T2, K], result seq.Func2[T1, T2, R]) iter.Seq[R] {
 	return seq.JoinFunc(slices.Values(s1), slices.Values(s2), key1, key2, result)
+}
+
+func UnionFunc[T any, K comparable](s1 []T, s2 []T, f seq.Func[T, K]) iter.Seq[T] {
+	return seq.UnionFunc(slices.Values(s1), slices.Values(s2), f)
+}
+
+func Union[T comparable](s1 iter.Seq[T], s2 iter.Seq[T]) iter.Seq[T] {
+	return Union(s1, s2)
+}
+
+func IntersectFunc[T any, K comparable](s1 []T, s2 []T, f seq.Func[T, K]) iter.Seq[T] {
+	return seq.IntersectFunc(slices.Values(s1), slices.Values(s2), f)
+}
+
+func Intersect[T comparable](s1 iter.Seq[T], s2 iter.Seq[T]) iter.Seq[T] {
+	return Intersect(s1, s2)
+}
+
+func ExceptFunc[T any, K comparable](s1 []T, s2 []T, f seq.Func[T, K]) iter.Seq[T] {
+	return seq.ExceptFunc(slices.Values(s1), slices.Values(s2), f)
+}
+
+func Except[T comparable](s1 iter.Seq[T], s2 iter.Seq[T]) iter.Seq[T] {
+	return Except(s1, s2)
+}
+
+func Pairwise[T any](s []T) iter.Seq2[T, T] {
+	return seq.Pairwise[T]()(slices.Values(s))
+}
+
+func PairwiseFunc[T, R any](s []T, f seq.Func2[T, T, R]) iter.Seq[R] {
+	return seq.PairwiseFunc(f)(slices.Values(s))
+}
+
+func Windowed[T any](s []T, size int) iter.Seq[[]T] {
+	return seq.Windowed[T](size)(slices.Values(s))
+}
+
+func Chunk[T any](s []T, size int) iter.Seq[[]T] {
+	return seq.Chunk[T](size)(slices.Values(s))
+}
+
+func Sum[T cmp.Ordered](s []T) T {
+	return seq.Sum[T]()(slices.Values(s))
+}
+
+func SumFunc[T any, A cmp.Ordered](s []T, f seq.Func[T, A]) A {
+	return seq.SumFunc(f)(slices.Values(s))
+}
+
+func Average[T seq.Number](s []T) T {
+	return seq.Average[T]()(slices.Values(s))
+}
+
+func AverageFunc[T any, A seq.Number](s []T, f seq.Func[T, A]) A {
+	return seq.AverageFunc(f)(slices.Values(s))
+}
+
+func Repeat[T any](s []T, count int) iter.Seq[T] {
+	return seq.Repeat[T](count)(slices.Values(s))
 }

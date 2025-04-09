@@ -12,7 +12,7 @@ func Reduce[T any](f Func2[T, T, T]) OperatorR[T, T] {
 		result, hasVal := next()
 
 		if !hasVal {
-			panic("Sequence contains no element")
+			panic("seq.Reduce: sequence contains no element")
 		}
 
 		for {
