@@ -53,3 +53,15 @@ type Tuple4[T1, T2, T3, T4 any] struct {
 	Item3 T3
 	Item4 T4
 }
+
+func pullToPush[T any](next func() (T, bool), stop func()) iter.Seq[T] {
+	return func(yield func(T) bool) {
+		defer stop()
+		for {
+			value, hasValue := next()
+			if !hasValue || !yield(value) {
+				return
+			}
+		}
+	}
+}
