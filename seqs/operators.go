@@ -172,3 +172,7 @@ func AverageFunc[T any, A seq.Number](s []T, f seq.Func[T, A]) A {
 func Repeat[T any](s []T, count int) iter.Seq[T] {
 	return seq.Repeat[T](count)(slices.Values(s))
 }
+
+func Expand[T any](s []T, f func(T) iter.Seq[T]) iter.Seq[T] {
+	return seq.Expand(f)(slices.Values(s))
+}

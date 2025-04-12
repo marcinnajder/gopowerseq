@@ -51,7 +51,7 @@ moze to nie ma sensu bo ...
 defer
 empty
 generate
-repeatvalue
++repeatvalue
 throww
 
 
@@ -64,7 +64,7 @@ throww
 + sum
 
 +count
-+ countby
++countby
 
 +foreach - "subscribe"
 oftype
@@ -74,8 +74,6 @@ doo
 ignoreelements
 
 isempty
-memoize
-
 
 +distinct
 +distinctby
@@ -92,8 +90,9 @@ memoize
 +buffer
 +pairwise
 partitionby
-share
-expand
++share
++memoize
++expand
 combinations
 interleave
 interpose
