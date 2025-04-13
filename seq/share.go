@@ -4,13 +4,6 @@ import (
 	"iter"
 )
 
-// func Share[T any]() Operator[T, T] {
-// 	return func(s iter.Seq[T]) iter.Seq[T] {
-// 		next, stop := iter.Pull(s)
-// 		return pullToPush(next, stop)
-// 	}
-// }
-
 func Share[T any]() Operator[T, T] {
 	return func(s iter.Seq[T]) iter.Seq[T] {
 		next, stop := iter.Pull(s)

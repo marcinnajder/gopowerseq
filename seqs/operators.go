@@ -176,3 +176,17 @@ func Repeat[T any](s []T, count int) iter.Seq[T] {
 func Expand[T any](s []T, f func(T) iter.Seq[T]) iter.Seq[T] {
 	return seq.Expand(f)(slices.Values(s))
 }
+
+func PartitionBy[T any, V comparable](s []T, f seq.Func[T, V]) iter.Seq[[]T] {
+	return seq.PartitionBy(f)(slices.Values(s))
+}
+
+func Combinations[T any](s []T, size int) iter.Seq[[]T] {
+	if size > len(s) {
+		return seq.Empty[[]T]()
+	}
+	if size == len(s) {
+		return seq.Of(slices.Clone(s))
+	}
+	return seq.Combinations[T](size)(slices.Values(s))
+}
