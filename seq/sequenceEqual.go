@@ -9,20 +9,8 @@ func SequenceEqual[T comparable](ss ...iter.Seq[T]) bool {
 		return true
 	}
 
-	nextFuncs := make([]func() (T, bool), len(ss))
-	stopFuncs := make([]func(), len(ss))
-
-	defer func() {
-		for _, stop := range stopFuncs {
-			stop()
-		}
-	}()
-
-	for i, s := range ss {
-		next, stop := iter.Pull(s)
-		nextFuncs[i] = next
-		stopFuncs[i] = stop
-	}
+	nextFuncs, stopAll := getIterators(ss)
+	defer stopAll()
 
 	for {
 		value1, hasValue1 := nextFuncs[0]()

@@ -94,8 +94,8 @@ isempty
 +memoize
 +expand
 +combinations
-interleave
-interpose
++interleave
++interpose
 
 +map
 +filter

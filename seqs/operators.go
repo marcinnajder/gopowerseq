@@ -190,3 +190,12 @@ func Combinations[T any](s []T, size int) iter.Seq[[]T] {
 	}
 	return seq.Combinations[T](size)(slices.Values(s))
 }
+
+func Interleave[T any](ss ...[]T) iter.Seq[T] {
+	sss := Map(ss, slices.Values)
+	return seq.Interleave(sss...)
+}
+
+func Interpose[T any](s []T, sep T) iter.Seq[T] {
+	return seq.Interpose(sep)(slices.Values(s))
+}

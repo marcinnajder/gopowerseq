@@ -62,3 +62,22 @@ func If[T any](cond bool, truevalue T, falsevalue T) T {
 		return falsevalue
 	}
 }
+
+func getIterators[T any](ss []iter.Seq[T]) (nextFuncs []func() (T, bool), stopAll func()) {
+	nextFuncs = make([]func() (T, bool), len(ss))
+	stopFuncs := make([]func(), len(ss))
+
+	for i, s := range ss {
+		next, stop := iter.Pull(s)
+		nextFuncs[i] = next
+		stopFuncs[i] = stop
+	}
+
+	stopAll = func() {
+		for _, stop := range stopFuncs {
+			stop()
+		}
+	}
+
+	return nextFuncs, stopAll
+}
