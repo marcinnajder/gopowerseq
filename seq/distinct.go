@@ -2,6 +2,8 @@ package seq
 
 import (
 	"iter"
+
+	"github.com/marcinnajder/gopowerseq/sequ"
 )
 
 func distinct[T any, K comparable, R any](f Func[T, K], resultFunc Func2[T, K, R]) Operator[T, R] {
@@ -26,7 +28,7 @@ func DistinctFunc[T any, K comparable](f Func[T, K]) Operator[T, K] {
 }
 
 func Distinct[T comparable]() Operator[T, T] {
-	return DistinctFunc(identity[T])
+	return DistinctFunc(sequ.Identity[T])
 }
 
 func DistinctBy[T any, K comparable](f Func[T, K]) Operator[T, T] {
@@ -67,5 +69,5 @@ func DistinctUntilChangedFunc[T any, K comparable](f Func[T, K]) Operator[T, T] 
 }
 
 func DistinctUntilChanged[T comparable]() Operator[T, T] {
-	return DistinctUntilChangedFunc(identity[T])
+	return DistinctUntilChangedFunc(sequ.Identity[T])
 }

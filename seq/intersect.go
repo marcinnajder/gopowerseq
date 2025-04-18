@@ -2,6 +2,8 @@ package seq
 
 import (
 	"iter"
+
+	"github.com/marcinnajder/gopowerseq/sequ"
 )
 
 func IntersectFunc[T any, K comparable](s1 iter.Seq[T], s2 iter.Seq[T], f Func[T, K]) iter.Seq[T] {
@@ -28,7 +30,7 @@ func IntersectFunc[T any, K comparable](s1 iter.Seq[T], s2 iter.Seq[T], f Func[T
 }
 
 func Intersect[T comparable](s1 iter.Seq[T], s2 iter.Seq[T]) iter.Seq[T] {
-	return IntersectFunc(s1, s2, identity[T])
+	return IntersectFunc(s1, s2, sequ.Identity[T])
 }
 
 func IntersectFuncP[T any, K comparable](s2 iter.Seq[T], f Func[T, K]) Operator[T, T] {

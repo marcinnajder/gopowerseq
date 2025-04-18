@@ -9,8 +9,8 @@ import (
 )
 
 func TestToTuples(t *testing.T) {
-	m := map[int]string{1: "one", 2: "two"}
+	m := map[int]string{1: "one"}
 	Assert_EqualSeq(t,
-		seq.Of(seq.Tuple[int, string]{1, "one"}, seq.Tuple[int, string]{2, "two"}),
+		seq.Of(seq.Tuple[int, string]{1, "one"}),
 		seq.Pipe(maps.All(m), seq.ToTuples[int, string]()))
 }

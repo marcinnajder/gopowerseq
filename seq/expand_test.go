@@ -7,6 +7,7 @@ import (
 
 	. "github.com/marcinnajder/gopowerseq/internal/shared4tests"
 	"github.com/marcinnajder/gopowerseq/seq"
+	"github.com/marcinnajder/gopowerseq/sequ"
 )
 
 type TreeNode struct {
@@ -15,10 +16,10 @@ type TreeNode struct {
 }
 
 func TestExpand(t *testing.T) {
-	numbers1 := seq.Expand(func(x int) iter.Seq[int] { return seq.If(x > 8, seq.Empty[int](), seq.Of(x*2)) })(seq.Of(1))
+	numbers1 := seq.Expand(func(x int) iter.Seq[int] { return sequ.If(x > 8, seq.Empty[int](), seq.Of(x*2)) })(seq.Of(1))
 	Assert_EqualSeq(t, seq.Of(1, 2, 4, 8, 16), numbers1)
 
-	numbers2 := seq.Expand(func(x int) iter.Seq[int] { return seq.If(x > 8, nil, seq.Of(x*2)) })(seq.Of(1))
+	numbers2 := seq.Expand(func(x int) iter.Seq[int] { return sequ.If(x > 8, nil, seq.Of(x*2)) })(seq.Of(1))
 	Assert_EqualSeq(t, seq.Of(1, 2, 4, 8, 16), numbers2)
 
 	empty := []TreeNode{}

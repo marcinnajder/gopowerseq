@@ -3,6 +3,7 @@ package seq
 import (
 	"iter"
 
+	"github.com/marcinnajder/gopowerseq/sequ"
 	"golang.org/x/exp/constraints"
 )
 
@@ -13,7 +14,7 @@ import (
 // }
 
 func Average[T Number]() OperatorR[T, T] {
-	return AverageFunc[T](identity)
+	return AverageFunc[T](sequ.Identity)
 }
 
 type Number interface {

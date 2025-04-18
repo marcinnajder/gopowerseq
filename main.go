@@ -2,16 +2,11 @@
 
 package main
 
-import (
-	"fmt"
-	"math"
-
-	"github.com/marcinnajder/gopowerseq/seq"
-)
+import "github.com/marcinnajder/gopowerseq/internal/examples"
 
 func main() {
 
-	powerSeqIntro()
+	executeExamples()
 	//fmt.Println(q)
 
 	// q := seq.Pipe2(
@@ -24,20 +19,25 @@ func main() {
 	// fmt.Println("asasd", bla)
 }
 
-func powerSeqIntro() {
-	for item := range seq.Filter(func(x int) bool { return x%2 == 0 })(seq.Of(1, 2, 3, 4, 5)) {
-		fmt.Println(item)
-	}
-
-	items := seq.Pipe3(
-		seq.Range(0, math.MaxInt64),
-		seq.Filter(func(x int) bool { return x%2 == 0 }),
-		seq.Take[int](5),
-		seq.ToSlice[int]())
-
-	fmt.Println(items)
-
+func executeExamples() {
+	// examples.DocIntro()
+	examples.DocOperators()
 }
+
+// func powerSeqIntro() {
+// 	for item := range seq.Filter(func(x int) bool { return x%2 == 0 })(seq.Of(1, 2, 3, 4, 5)) {
+// 		fmt.Println(item)
+// 	}
+
+// 	items := seq.Pipe3(
+// 		seq.Range(0, math.MaxInt64),
+// 		seq.Filter(func(x int) bool { return x%2 == 0 }),
+// 		seq.Take[int](5),
+// 		seq.ToSlice[int]())
+
+// 	fmt.Println(items)
+
+// }
 
 // 	import { pipe, range, filter, take, toarray } from "powerseq"; // npm install powerseq
 

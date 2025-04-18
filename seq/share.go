@@ -6,18 +6,20 @@ import (
 
 func Share[T any]() Operator[T, T] {
 	return func(s iter.Seq[T]) iter.Seq[T] {
-		next, stop := iter.Pull(s)
-		iters := 0
+		next, _ := iter.Pull(s)
+		//iters := 0
 
 		return func(yield func(T) bool) {
-			iters++
+			// - there is not ideal solution for cleaning resources :/
+			// - finally cleaning logic has been commented out to be compatible with JS powerseq library
 
-			defer func() {
-				iters--
-				if iters == 0 {
-					stop()
-				}
-			}()
+			// iters++
+			// defer func() {
+			// 	iters--
+			// 	if iters == 0 {
+			// 		stop()
+			// 	}
+			// }()
 
 			for {
 				value, hasValue := next()

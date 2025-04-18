@@ -1,6 +1,10 @@
 package seq
 
-import "iter"
+import (
+	"iter"
+
+	"github.com/marcinnajder/gopowerseq/sequ"
+)
 
 func GroupByV[T any, K comparable, V any](keyFunc Func[T, K], valueFunc Func[T, V]) OperatorR[T, map[K][]V] {
 	return func(s iter.Seq[T]) map[K][]V {
@@ -14,5 +18,5 @@ func GroupByV[T any, K comparable, V any](keyFunc Func[T, K], valueFunc Func[T, 
 }
 
 func GroupBy[T any, K comparable](f Func[T, K]) OperatorR[T, map[K][]T] {
-	return GroupByV(f, identity)
+	return GroupByV(f, sequ.Identity)
 }

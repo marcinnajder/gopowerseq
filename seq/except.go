@@ -2,6 +2,8 @@ package seq
 
 import (
 	"iter"
+
+	"github.com/marcinnajder/gopowerseq/sequ"
 )
 
 // const set = new Set<T>();
@@ -45,7 +47,7 @@ func ExceptFunc[T any, K comparable](s1 iter.Seq[T], s2 iter.Seq[T], f Func[T, K
 }
 
 func Except[T comparable](s1 iter.Seq[T], s2 iter.Seq[T]) iter.Seq[T] {
-	return ExceptFunc(s1, s2, identity[T])
+	return ExceptFunc(s1, s2, sequ.Identity[T])
 }
 
 func ExceptFuncP[T any, K comparable](s2 iter.Seq[T], f Func[T, K]) Operator[T, T] {

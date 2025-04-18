@@ -32,10 +32,6 @@ type OperatorR[T, R any] OperatorTR[iter.Seq[T], R]
 
 type Operator[T, R any] OperatorTR[iter.Seq[T], iter.Seq[R]]
 
-func identity[T any](t T) T {
-	return t
-}
-
 type Tuple[T1, T2 any] struct {
 	Item1 T1
 	Item2 T2
@@ -52,15 +48,6 @@ type Tuple4[T1, T2, T3, T4 any] struct {
 	Item2 T2
 	Item3 T3
 	Item4 T4
-}
-
-// sequ
-func If[T any](cond bool, truevalue T, falsevalue T) T {
-	if cond {
-		return truevalue
-	} else {
-		return falsevalue
-	}
 }
 
 func getIterators[T any](ss []iter.Seq[T]) (nextFuncs []func() (T, bool), stopAll func()) {
