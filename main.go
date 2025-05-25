@@ -1,3 +1,5 @@
+// go build .
+// go run .
 // go test ./...
 
 package main

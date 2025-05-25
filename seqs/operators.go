@@ -16,6 +16,14 @@ func Filter[T any](s []T, f seq.Func[T, bool]) iter.Seq[T] {
 	return seq.Filter(f)(slices.Values(s))
 }
 
+func FlatMapR[T, C, R any](s []T, subcoll seq.Func[T, iter.Seq[C]], result seq.Func2[T, C, R]) iter.Seq[R] {
+	return seq.FlatMapR(subcoll, result)(slices.Values(s))
+}
+
+func FlatMap[T, C any](s []T, subcoll seq.Func[T, iter.Seq[C]]) iter.Seq[C] {
+	return seq.FlatMap(subcoll)(slices.Values(s))
+}
+
 func CountFunc[T any](s []T, f seq.Func[T, bool]) int {
 	return seq.CountFunc(f)(slices.Values(s))
 }
@@ -67,6 +75,10 @@ func ToMap[T any, K comparable](s []T, keyFunc seq.Func[T, K]) map[K]T {
 
 func ToMapV[T any, K comparable, V any](s []T, keyFunc seq.Func[T, K], valueFunc seq.Func[T, V]) map[K]V {
 	return seq.ToMapV(keyFunc, valueFunc)(slices.Values(s))
+}
+
+func Take[T any](s []T, count int) iter.Seq[T] {
+	return seq.Take[T](count)(slices.Values(s))
 }
 
 func Skip[T any](s []T, count int) iter.Seq[T] {

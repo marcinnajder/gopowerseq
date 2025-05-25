@@ -36,6 +36,21 @@ for n, c := range seqs.Zip(numbersSlice, chars) {
 
 ### operators
 
+- creation - Of, Empty, Entries, Range, Repeat, RepeatValue
+- filtering - Filter, Skip, SkipWhile, Take, TakeWhile
+- mapping - Map, FlatMap, FlatMapR
+- partitioning - Pairwise, Windowed, PartitionBy, Chunk, Combinations
+- merging - Join, Zip, Interleave, Interpose
+- grouping - GroupBy, GroupByV, CountBy
+- set - Except, Intersect, Union, Distinct, DistinctBy, DistinctUntilChanged
+- conversion - ToSlice, ToMap, ToMapV, ToTuples
+- aggregation - Reduce, ReduceA, Average, Count, Sum
+- quantifiers - All, Any
+- concatenation - Concat
+- equality - SequenceEqual
+- element - First
+- misc - Memoize, Share, Expand, Scan
+
 ```go
 // helpers
 func IsEven(n int) bool       { return n%2 == 0 }

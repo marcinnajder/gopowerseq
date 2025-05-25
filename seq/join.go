@@ -4,10 +4,6 @@ import (
 	"iter"
 )
 
-func Bla() {
-
-}
-
 func Join[T1 any, T2 any, K comparable](s1 iter.Seq[T1], s2 iter.Seq[T2], key1 Func[T1, K], key2 Func[T2, K]) iter.Seq2[T1, T2] {
 	return func(yield func(T1, T2) bool) {
 		m := make(map[K][]T2)
