@@ -1,3 +1,8 @@
+# [0.0.3](https://github.com/marcinnajder/gopowerseq/releases/tag/v0.0.3) (2025-05-27)
+
+- extend documentation with categorized operator list
+- `seqs.FlatMap` api change
+
 # [0.0.2](https://github.com/marcinnajder/gopowerseq/releases/tag/v0.0.2) (2025-04-18)
 
 - fix `take` operator, argument `count` have been mutated
