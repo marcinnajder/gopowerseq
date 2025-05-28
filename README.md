@@ -1,6 +1,6 @@
 ## Documentation
 
-**gopowerseq** library provides a set of standard operators working with sequences in Go. [go1.23](https://go.dev/doc/go1.23#iterators) (2024-08-13) introduced [iterators](https://go.dev/blog/range-functions) (`iter.Seq[T]` interface) that can be treated as a lazy sequences known from other programming languages like C#, JS, F#, Clojure, Python, ... . This library is a port of the JS counterpart [powerseq](https://github.com/marcinnajder/powerseq).
+**gopowerseq** library provides a set of standard operators working with sequences in Go. [go1.23](https://go.dev/doc/go1.23#iterators) (2024-08-13) introduced [iterators](https://go.dev/blog/range-functions) (`iter.Seq[T]` interface) that can be treated as a lazy sequences known from other programming languages like C#, JS, F#, Clojure, Python, ... . Read [Sequences in Go](https://marcinnajder.github.io/2024/12/01/sequences-in-go-part-1-introduction-to-iterators.html) series to better understand iterators in Go, it also presents how to implement gopowerseq operators from scratch. This library is a port of the JS counterpart [powerseq](https://github.com/marcinnajder/powerseq)
 
 ```go
 isEven := func(x int) bool { return x%2 == 0 }
@@ -32,7 +32,6 @@ for n, c := range seqs.Zip(numbersSlice, chars) {
 - operators from `seq` package take `iter.Seq[]` and return functions `func (iter.Seq[]) iter.Seq[]`, there are "curried" so we can `Pipe` many operators easily
 - operators from `seqs` package take slices `[]T` and return sequences `iter.Seq[]`
 - for some operators a special counterparts ending with `P` are provided (`ConcatP`,`ExceptP`,`InterleaveP`,`IntersectP`,`JoinP`,`SequenceEqualP`, `UnionP`, `ZipP`), those functions must be used inside `Pipe(..., opp())`, so we call `Concat([1,2,3], [4,5,6])` or `Pipe([1,2,3], ConcatP([4,5,6]) )`
-- read [Programming with sequences](https://marcinnajder.github.io/2022/11/02/programming-with-sequences-part-1-introduction-to-powerseq.html) series to better understand iterators and generators in JS, it also presents how to implement powerseq operators from scratch
 
 ### operators
 
